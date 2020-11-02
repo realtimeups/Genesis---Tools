@@ -179,27 +179,28 @@ message.channel.send(Loading)
     if (command === 'info') {
         message.react('✅')
         if (!message.mentions.users.size) {
+            var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
                 const c = message.author.createdAt
             const owner = client.users.cache.get(process.env.owner);
             var randomColor = Math.floor(Math.random() * 16777215).toString(16);
             const Accinfo = new Discord.MessageEmbed()
                 .setColor(randomColor)
                 .setThumbnail(message.author.displayAvatarURL({ size: 2048, dynamic: true }))
-                .addField("🕒 Account Age :", "`" + `${c.getDate()}/${c.getMonth()}/${c.getFullYear()}  ${c.getHours()}:${c.getMinutes()}` + "`", true)
+                .addField("🕒 Account Age :", "`" + `${c.getDate()}/${months[c.getMonth()]}/${c.getFullYear()}  ${c.getHours()}:${c.getMinutes()}` + "`", true)
                 .addField("🆔 Client Id :", `${message.author.id}`, true)
                 .addField("💦 Avatar :", `[Click Here To Open](${message.author.displayAvatarURL({size: 2048, dynamic:true})})`, true)
                 .setFooter(` ${message.author.tag}`, `${message.author.displayAvatarURL({size: 2048, dynamic:true})}`)
             message.channel.send(Accinfo);
         } else {
             const taggedUser = message.mentions.users.first();
-
+var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
             const c = taggedUser.createdAt
             const owner = client.users.cache.get(process.env.owner);
             var randomColor = Math.floor(Math.random() * 16777215).toString(16);
             const Accinfo = new Discord.MessageEmbed()
                 .setColor(randomColor)
                 .setThumbnail(taggedUser.displayAvatarURL({ size: 2048, dynamic: true }))
-                .addField("🕒 Account Age :", "`" + `${c.getDate()}/${c.getMonth()}/${c.getFullYear()}  ${c.getHours()}:${c.getMinutes()}` + "`", true)
+                .addField("🕒 Account Age :", "`" + `${c.getDate()}/${months[c.getMonth()]}/${c.getFullYear()}  ${c.getHours()}:${c.getMinutes()}` + "`", true)
                 .addField("🆔 Client Id :", `${taggedUser.id}`, true)
                 .addField("💦 Avatar :", `[Click Here To Open](${taggedUser.displayAvatarURL({size: 2048, dynamic:true})})`, true)
                 .setFooter(` ${taggedUser.tag}`, `${taggedUser.displayAvatarURL({size: 2048, dynamic:true})}`)
