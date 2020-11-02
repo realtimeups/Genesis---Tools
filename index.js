@@ -8,7 +8,14 @@ const randomPuppy = require('random-puppy');
 const Gamedig = require('gamedig');
 const prefix = process.env.prefix;
 client.on('ready', () => {
+    let myGuild = client.guilds.cache.get('768897349288067103');
+    let memberCount = myGuild.memberCount;
     console.log(`Logged in as ${client.user.tag}!`);
+    client.user.setActivity('LOADING', { type: 'WATCHING' });
+  setInterval(function() {
+   client.user.setActivity(`Use ${prefix}help`, { type: 'WATCHING' });
+   client.user.setActivity(`💥Members:${memberCount}`, { type: 'WATCHING' });
+}, 5000)
 });
 client.on('message', async message => {
     if (!message.content.startsWith(prefix) || message.author.bot) return;
@@ -339,27 +346,6 @@ client.on('messageDelete', async message => {
     return client.channels.cache.get(process.env.del).send(Log);
 
 
-});
-cron.schedule('5 * * * * *', function() {
-    var d = new Date();
-    var g_h = d.getHours();
-    var g_m = d.getMinutes();
-    var g_s = d.getSeconds();
-    let myGuild = client.guilds.cache.get('680395962446774292');
-    let memberCount = myGuild.memberCount;
-
-    client.user.setActivity(`Members: ${memberCount}`, { type: 'PLAYING' });
-    console.log(chalk.redBright("Status"), chalk.blueBright("Has Been"), chalk.yellowBright("Changed To"), chalk.greenBright(`${memberCount}`), chalk.redBright(`At ${g_h}:${g_m}:${g_s}`))
-});
-cron.schedule('10 * * * * *', function() {
-    var d = new Date();
-    var g_h = d.getHours();
-    var g_m = d.getMinutes();
-    var g_s = d.getSeconds();
-
-    var status = `Use ${prefix}Help`
-    client.user.setActivity(status, { type: 'WATCHING' });
-    console.log(chalk.redBright("Status"), chalk.blueBright("Has Been"), chalk.yellowBright("Changed To"), chalk.greenBright(`${status}`), chalk.redBright(`At ${g_h}:${g_m}:${g_s}`))
 });
 cron.schedule('* 10 * * * *', function() {
     const meme = client.channels.cache.get(process.env.meme);
