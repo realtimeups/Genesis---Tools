@@ -8,11 +8,12 @@ const randomPuppy = require('random-puppy');
 const Gamedig = require('gamedig');
 const prefix = process.env.prefix;
 client.on('ready', () => {
-    let myGuild = client.guilds.cache.get('680395962446774292');
-    let memberCount = myGuild.memberCount;
+
     console.log(`Logged in as ${client.user.tag}!`);
     client.user.setActivity('LOADING', { type: 'WATCHING' });
   setInterval(function() {
+          let myGuild = client.guilds.cache.get('680395962446774292');
+    let memberCount = myGuild.memberCount;
    client.user.setActivity(`Use ${prefix}help`, { type: 'WATCHING' });
    client.user.setActivity(`💥Members:${memberCount}`, { type: 'WATCHING' });
 }, 5000)
@@ -53,12 +54,8 @@ client.on('message', async message => {
         }).catch(err => console.error(err));
 
     };
-    if (command === 'type') {
-                const owner = client.users.cache.get(process.env.owner);
-        const { guild } = message
-        const { name, region, memberCount, roles, channels, emojis, ownerID, verificationLevel, premiumSubscriptionCount, premiumTier, voiceStates } = guild
-        const icon = guild.iconURL({ size: 2048, dynamic: true })
-        const banner = guild.bannerURL({ size: 2048, dynamic: true })
+    if (command === 'start') {
+
 const Loading = new Discord.MessageEmbed()
 .addField('Loading...')
 .setColor('ff0000')
@@ -66,7 +63,11 @@ const Loading = new Discord.MessageEmbed()
 message.channel.send(Loading)
 .then((message) => {
   setInterval(function() {
-
+                const owner = client.users.cache.get(process.env.owner);
+        const { guild } = message
+        const { name, region, memberCount, roles, channels, emojis, ownerID, verificationLevel, premiumSubscriptionCount, premiumTier, voiceStates } = guild
+        const icon = guild.iconURL({ size: 2048, dynamic: true })
+        const banner = guild.bannerURL({ size: 2048, dynamic: true })
     message.edit(new Discord.MessageEmbed().setTitle(`${name}`).setThumbnail(icon).setColor("00FFFF").addField("🌏Server Region:", `${region}`, true).addField("🌐Server Members:", `${memberCount}`, true).addField("<a:gif_10:708752903913078944> Server Roles", `${roles.cache.size}`, true).addField("<a:gif_38:757930271571050496> Server Emojis", `${emojis.cache.size}`, true).addField("📣 Server Channels", `${channels.cache.size}`, true).addField("<a:gif_8:683287662366425138> Server Voices", `${voiceStates.cache.size}`, true).addField("<a:boost:765944412856385567>Server Boosts", `${premiumSubscriptionCount}`, true).addField("<a:boost:765944412856385567>Server Boost Level", `${premiumTier}`, true).addField("👑 Server Owner", `<@${ownerID}>`, true).setFooter(`Codded By ${owner.tag}`, `${owner.displayAvatarURL({size: 2048, dynamic:true})}`).setImage(banner))
  }, 5000)})
     }
