@@ -179,30 +179,27 @@ message.channel.send(Loading)
     if (command === 'info') {
         message.react('✅')
         if (!message.mentions.users.size) {
-            let now = Date.now(); // timestamp of now
-            let createdAt = message.author.createdTimestamp; // timestamp of createdAt bot
-            let age = now - createdAt; // diference between now and createdAt -> Gives you the age of the bot
+                const c = message.author.createdAt
             const owner = client.users.cache.get(process.env.owner);
             var randomColor = Math.floor(Math.random() * 16777215).toString(16);
             const Accinfo = new Discord.MessageEmbed()
                 .setColor(randomColor)
                 .setThumbnail(message.author.displayAvatarURL({ size: 2048, dynamic: true }))
-                .addField("🕒 Account Age :", "`" + `${pm(age, {verbose: false})}` + "`", false)
+                .addField("🕒 Account Age :", "`" + `${c.getDate()}/${c.getMonth()}/${c.getFullYear()}  ${c.getHours()}:${c.getMinutes()}` + "`", true)
                 .addField("🆔 Client Id :", `${message.author.id}`, true)
                 .addField("💦 Avatar :", `[Click Here To Open](${message.author.displayAvatarURL({size: 2048, dynamic:true})})`, true)
                 .setFooter(` ${message.author.tag}`, `${message.author.displayAvatarURL({size: 2048, dynamic:true})}`)
             message.channel.send(Accinfo);
         } else {
             const taggedUser = message.mentions.users.first();
-            let now = Date.now(); // timestamp of now
-            let createdAt = taggedUser.createdTimestamp; // timestamp of createdAt bot
-            let age = now - createdAt; // diference between now and createdAt -> Gives you the age of the bot
+
+            const c = taggedUser.createdAt
             const owner = client.users.cache.get(process.env.owner);
             var randomColor = Math.floor(Math.random() * 16777215).toString(16);
             const Accinfo = new Discord.MessageEmbed()
                 .setColor(randomColor)
                 .setThumbnail(taggedUser.displayAvatarURL({ size: 2048, dynamic: true }))
-                .addField("🕒 Account Age :", "`" + `${pm(age, {verbose: false})}` + "`", false)
+                .addField("🕒 Account Age :", "`" + `${c.getDate()}/${c.getMonth()}/${c.getFullYear()}  ${c.getHours()}:${c.getMinutes()}` + "`", true)
                 .addField("🆔 Client Id :", `${taggedUser.id}`, true)
                 .addField("💦 Avatar :", `[Click Here To Open](${taggedUser.displayAvatarURL({size: 2048, dynamic:true})})`, true)
                 .setFooter(` ${taggedUser.tag}`, `${taggedUser.displayAvatarURL({size: 2048, dynamic:true})}`)
