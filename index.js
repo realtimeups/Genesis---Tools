@@ -8,7 +8,7 @@ const randomPuppy = require('random-puppy');
 const Gamedig = require('gamedig');
 const prefix = process.env.prefix;
 client.on('ready', () => {
-    let myGuild = client.guilds.cache.get('768897349288067103');
+    let myGuild = client.guilds.cache.get('680395962446774292');
     let memberCount = myGuild.memberCount;
     console.log(`Logged in as ${client.user.tag}!`);
     client.user.setActivity('LOADING', { type: 'WATCHING' });
