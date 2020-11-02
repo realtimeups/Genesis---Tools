@@ -345,7 +345,7 @@ cron.schedule('5 * * * * *', function() {
     var g_h = d.getHours();
     var g_m = d.getMinutes();
     var g_s = d.getSeconds();
-    let myGuild = client.guilds.cache.get('768897349288067103');
+    let myGuild = client.guilds.cache.get('680395962446774292');
     let memberCount = myGuild.memberCount;
 
     client.user.setActivity(`Members: ${memberCount}`, { type: 'PLAYING' });
