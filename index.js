@@ -211,6 +211,7 @@ var months = ["January", "February", "March", "April", "May", "June", "July", "A
 
 
     if (command === 'help') {
+        if(!args[0]){
         message.react('✅')
         const owner = client.users.cache.get(process.env.owner);
         var randomColor = Math.floor(Math.random() * 16777215).toString(16);
@@ -223,6 +224,21 @@ var months = ["January", "February", "March", "April", "May", "June", "July", "A
             .addField("`" + `🔰${prefix}avatar` + "`", "**For Get User Avatar**")
             .setFooter(`Codded By ${owner.tag}`, `${owner.displayAvatarURL({size: 2048, dynamic:true})}`)
         message.channel.send(help);
+        }
+        if(args[0] === 'music'){
+            const embed = new Discord.MessageEmbed()
+            .setTitle("Music Command List")
+            .setColor(randomcolor)
+
+            .addField("`!!nowplaying`", "~ To show the music which is currently playing in this server")
+            .addField("`!!pause `", "~ To pause the current music in the server")
+            .addField("`!!play <song_name>`", "~ To play songs :D")
+            .addField("`!!queue `", "~ To show the server songs queue")
+            .addField("`!!resume `", " ~ To resume the paused music")
+            .addField("`!!skip `", "~ To skip the current music")
+            .addField("`!!stop `", " ~ To stop the music and clearing the queue")
+            .addField("`!!volume [volume]`", "~ To change the server song queue volume")
+        }
     }
     if (command === 'ping') {
         message.react('✅')
