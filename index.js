@@ -222,10 +222,12 @@ var months = ["January", "February", "March", "April", "May", "June", "July", "A
             .addField("`" + `🔰${prefix}ping` + "`", "**For Get Ping**")
             .addField("`" + `🔰${prefix}server` + "`", "**For Get Server info**")
             .addField("`" + `🔰${prefix}avatar` + "`", "**For Get User Avatar**")
+            .addField("`" + `🔰${prefix}help music` + "`", "**For Get Music Help**")
             .setFooter(`Codded By ${owner.tag}`, `${owner.displayAvatarURL({size: 2048, dynamic:true})}`)
         message.channel.send(help);
         }
         if(args[0] === 'music'){
+            const owner = client.users.cache.get(process.env.owner);
             var randomColor = Math.floor(Math.random() * 16777215).toString(16);
             const embed = new Discord.MessageEmbed()
             .setTitle("Music Command List")
@@ -239,6 +241,8 @@ var months = ["January", "February", "March", "April", "May", "June", "July", "A
             .addField("`🔰!!skip `", "~ To skip the current music")
             .addField("`🔰!!stop `", " ~ To stop the music and clearing the queue")
             .addField("`🔰!!volume [volume]`", "~ To change the server song queue volume")
+            .setFooter(`Codded By ${owner.tag}`, `${owner.displayAvatarURL({size: 2048, dynamic:true})}`)
+            message.channel.send(embed)
         }
     }
     if (command === 'ping') {
