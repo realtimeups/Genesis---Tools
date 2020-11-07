@@ -229,7 +229,7 @@ var months = ["January", "February", "March", "April", "May", "June", "July", "A
             var randomColor = Math.floor(Math.random() * 16777215).toString(16);
             const embed = new Discord.MessageEmbed()
             .setTitle("Music Command List")
-            .setColor(randomcolor)
+            .setColor(randomColor)
 
             .addField("`🔰!!nowplaying`", "~ To show the music which is currently playing in this server")
             .addField("`🔰!!pause `", "~ To pause the current music in the server")
