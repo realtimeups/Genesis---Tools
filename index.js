@@ -22,9 +22,9 @@ client.on('message', async message => {
     if (!message.content.startsWith(prefix) || message.author.bot) return;
     const args = message.content.slice(prefix.length).trim().split(' ');
     const command = args.shift().toLowerCase();
-   if (message.content.startsWith("https://" || "discord.gg")){
+   if (message.content("https://" || "discord.gg"){
 message.delete()
-    }
+    });
     if (command === 'meme') {
         let reddit = [
             "meme",
