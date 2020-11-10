@@ -22,9 +22,10 @@ client.on('message', async message => {
     if (!message.content.startsWith(prefix) || message.author.bot) return;
     const args = message.content.slice(prefix.length).trim().split(' ');
     const command = args.shift().toLowerCase();
-   if (message.content("https://" || "discord.gg"){
-message.delete()
-    });
+  if (message.content.includes('discord.gg/'||'discordapp.com/invite/')) { //if it contains an invite link
+    message.delete() //delete the message
+      .then(message.channel.send('Link Deleted:\n**Invite links are not permitted on this server**'))
+  }
     if (command === 'meme') {
         let reddit = [
             "meme",
