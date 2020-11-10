@@ -22,10 +22,6 @@ client.on('message', async message => {
     if (!message.content.startsWith(prefix) || message.author.bot) return;
     const args = message.content.slice(prefix.length).trim().split(' ');
     const command = args.shift().toLowerCase();
-  if (message.content.includes('discord.gg/'||'discordapp.com/invite/')) { //if it contains an invite link
-    message.delete() //delete the message
-      .then(message.channel.send('Link Deleted:\n**Invite links are not permitted on this server**'))
-  }
     if (command === 'meme') {
         let reddit = [
             "meme",
@@ -371,12 +367,33 @@ client.on('messageDelete', async message => {
 
 
 });
+client.on("message", (message) => {
+  if (message.content.includes("https://")) {
+    console.log("deleted " + message.content + " from " + message.author)
+    message.delete(1);
+    message.channel.sendMessage("No links here, " + message.author)
+  }
+  if (message.content.includes("http://")) {
+    console.log("deleted " + message.content + " from " + message.author)
+    message.delete(1);
+    message.channel.sendMessage("No links here, " + message.author)
+  }
+  if (message.content.includes("www.")) {
+    console.log("deleted " + message.content + " from " + message.author)
+    message.delete(1);
+    message.channel.sendMessage("No links here, " + message.author)
+  }
+  if (message.content.includes("discord.gg")) {
+    console.log("deleted " + message.content + " from " + message.author)
+    message.delete(1);
+    message.channel.sendMessage("No links here, " + message.author)
+  }
+    if (message.content.includes("/invite")) {
+    console.log("deleted " + message.content + " from " + message.author)
+    message.delete(1);
+    message.channel.sendMessage("No links here, " + message.author)
+  }
+});
 client.login(process.env.token);
 
-/*
-var d = new Date.now()
-        var g_h = d.getHours();
-        var g_m = d.getMinutes();
-        var g_s = d.getSeconds();
-*/
 
