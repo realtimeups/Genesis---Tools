@@ -394,6 +394,102 @@ client.on("message", (message) => {
     message.channel.sendMessage("No links here, " + message.author)
   }
 });
+function gregorian_to_ghamari(year, month, day) {
+    if (year > 1582 || (year == 1581 && month > 9 && day > 14)) {
+        int1 = parseInt((month - 14) / 12);
+        jd = parseInt((1461 * (year + 4800 + int1)) / 4) + parseInt((367 * (month - 2 - (12 * (int1)))) / 12) - parseInt((3 * (parseInt((year + 4900 + int1) / 100))) / 4) + day - 32075;
+    } else {
+        jd = (367 * year) - parseInt((7 * (year + 5001 + parseInt((month - 9) / 7))) / 4) + parseInt((275 * month) / 9) + day + 1729777;
+    }
+    l = jd - 1948440 + 10632;
+    n = parseInt((l - 1) / 10631);
+    l = l - 10631 * n + 354;
+    j = ((parseInt((10985 - l) / 5316)) * (parseInt((50 * l) / 17719))) + ((parseInt(l / 5670)) * (parseInt((43 * l) / 15238)));
+    l = l - (parseInt((30 - j) / 15)) * (parseInt((17719 * j) / 50)) - (parseInt(j / 16)) * (parseInt((15238 * j) / 43)) + 29;
+    month = parseInt((24 * l) / 709);
+    day = l - parseInt((709 * month) / 24);
+    year = (30 * n) + j - 30;
+    return [year, month, day];
+}
+
+function ghamari_to_gregorian(year, month, day) {
+    jd = parseInt(((11 * year) + 3) / 30) + (354 * year) + (30 * month) - parseInt((month - 1) / 2) + day + 1948440 - 385;
+    if (jd > 2299160) {
+        l = jd + 68569;
+        n = parseInt((4 * l) / 146097);
+        l = l - parseInt((146097 * n + 3) / 4);
+        i = parseInt((4000 * (l + 1)) / 1461001);
+        l = l - parseInt((1461 * i) / 4) + 31;
+        j = parseInt((80 * l) / 2447);
+        day = l - parseInt((2447 * j) / 80);
+        l = parseInt(j / 11);
+        month = j + 2 - (12 * l);
+        year = (100 * (n - 49)) + i + l;
+    } else {
+        j = jd + 1402;
+        k = parseInt((j - 1) / 1461);
+        l = j - (1461 * k);
+        n = parseInt((l - 1) / 365) - parseInt(l / 1461);
+        i = l - (365 * n) + 30;
+        j = parseInt((80 * i) / 2447);
+        day = i - parseInt((2447 * j) / 80);
+        i = parseInt(j / 11);
+        month = j + 2 - (12 * i);
+        year = (4 * k) + n + i - 4716;
+    }
+    return [year, month, day];
+}
+
+
+
+
+
+
+function gregorian_to_jalali(gy, gm, gd) {
+    var g_d_m, jy, jm, jd, gy2, days;
+    g_d_m = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334];
+    gy2 = (gm > 2) ? (gy + 1) : gy;
+    days = 355666 + (365 * gy) + parseInt((gy2 + 3) / 4) - parseInt((gy2 + 99) / 100) + parseInt((gy2 + 399) / 400) + gd + g_d_m[gm - 1];
+    jy = -1595 + (33 * parseInt(days / 12053));
+    days %= 12053;
+    jy += 4 * parseInt(days / 1461);
+    days %= 1461;
+    if (days > 365) {
+        jy += parseInt((days - 1) / 365);
+        days = (days - 1) % 365;
+    }
+    if (days < 186) {
+        jm = 1 + parseInt(days / 31);
+        jd = 1 + (days % 31);
+    } else {
+        jm = 7 + parseInt((days - 186) / 30);
+        jd = 1 + ((days - 186) % 30);
+    }
+    return [jy, jm, jd];
+}
+
+function jalali_to_gregorian(jy, jm, jd) {
+    var sal_a, gy, gm, gd, days;
+    jy += 1595;
+    days = -355668 + (365 * jy) + (parseInt(jy / 33) * 8) + parseInt(((jy % 33) + 3) / 4) + jd + ((jm < 7) ? (jm - 1) * 31 : ((jm - 7) * 30) + 186);
+    gy = 400 * parseInt(days / 146097);
+    days %= 146097;
+    if (days > 36524) {
+        gy += 100 * parseInt(--days / 36524);
+        days %= 36524;
+        if (days >= 365) days++;
+    }
+    gy += 4 * parseInt(days / 1461);
+    days %= 1461;
+    if (days > 365) {
+        gy += parseInt((days - 1) / 365);
+        days = (days - 1) % 365;
+    }
+    gd = days + 1;
+    sal_a = [0, 31, ((gy % 4 === 0 && gy % 100 !== 0) || (gy % 400 === 0)) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    for (gm = 0; gm < 13 && gd > sal_a[gm]; gm++) gd -= sal_a[gm];
+    return [gy, gm, gd];
+}
 cron.schedule('5 * * * * *', function () {
     var currentdate = new Date();
     var datetime = "📆『" + currentdate.getDate() + "/" +
