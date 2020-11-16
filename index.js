@@ -367,33 +367,6 @@ client.on('messageDelete', async message => {
 
 
 });
-client.on("message", (message) => {
-  if (message.content.includes("https://")) {
-    console.log("deleted " + message.content + " from " + message.author)
-    message.delete(1);
-    message.channel.sendMessage("No links here, " + message.author)
-  }
-  if (message.content.includes("http://")) {
-    console.log("deleted " + message.content + " from " + message.author)
-    message.delete(1);
-    message.channel.sendMessage("No links here, " + message.author)
-  }
-  if (message.content.includes("www.")) {
-    console.log("deleted " + message.content + " from " + message.author)
-    message.delete(1);
-    message.channel.sendMessage("No links here, " + message.author)
-  }
-  if (message.content.includes("discord.gg")) {
-    console.log("deleted " + message.content + " from " + message.author)
-    message.delete(1);
-    message.channel.sendMessage("No links here, " + message.author)
-  }
-    if (message.content.includes("/invite")) {
-    console.log("deleted " + message.content + " from " + message.author)
-    message.delete(1);
-    message.channel.sendMessage("No links here, " + message.author)
-  }
-});
 function gregorian_to_ghamari(year, month, day) {
     if (year > 1582 || (year == 1581 && month > 9 && day > 14)) {
         int1 = parseInt((month - 14) / 12);
