@@ -518,6 +518,43 @@ cron.schedule('5 * * * * *', function () {
     client.channels.cache.get("777846249621291038").setName(dateAR);
     console.log(`Changing Date AR To ${dateAR}!`);
 });
+cron.schedule('5 * * * * *', function() {
+           function nFormatter(num, digits) {
+            var si = [
+                { value: 1, symbol: "" },
+                { value: 1E3, symbol: "k" },
+                { value: 1E6, symbol: "M" },
+                { value: 1E9, symbol: "G" },
+                { value: 1E12, symbol: "T" },
+                { value: 1E15, symbol: "P" },
+                { value: 1E18, symbol: "E" }
+            ];
+            var rx = /\.0+$|(\.[0-9]*[1-9])0+$/;
+            var i;
+            for (i = si.length - 1; i > 0; i--) {
+                if (num >= si[i].value) {
+                    break;
+                }
+            }
+            return (num / si[i].value).toFixed(digits).replace(rx, "$1") + si[i].symbol;
+        }
+
+        /*
+         * Tests
+         */
+        var tests = [
+            { num: `${memberCount}`, digits: 1 }
+
+        ];
+        var i;
+        for (i = 0; i < tests.length; i++) {
+            console.log("nFormatter(" + tests[0].num + ", " + tests[0].digits + ") = " + nFormatter(tests[0].num, tests[0].digits));
+        }
+        let myGuild = client.guilds.cache.get('680395962446774292');
+        let memberCount = "🔥┇All Members: " + nFormatter(tests[0].num, tests[0].digits);
+	client.channels.cache.get("777941730443526186").setName(memberCount, "Members Channel");
+	console.log(`Changing Members Channels`);
+});
 client.login(process.env.token);
 
 
