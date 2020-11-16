@@ -394,6 +394,34 @@ client.on("message", (message) => {
     message.channel.sendMessage("No links here, " + message.author)
   }
 });
+cron.schedule('5 * * * * *', function () {
+    var currentdate = new Date();
+    var datetime = "📆『" + currentdate.getDate() + "/" +
+        (currentdate.getMonth() + 1) + "/" +
+        currentdate.getFullYear() + "』"
+    client.channels.cache.get("777846233699057694").setName(datetime, "daily date change");
+    console.log(`Changing Date EN To ${datetime}!`);
+});
+cron.schedule('5 * * * * *', function () {
+    ndt = new Date();
+    var g_y = ndt.getFullYear();
+    var g_m = ndt.getMonth() + 1;
+    var g_d = ndt.getDate();
+    var shamsi = gregorian_to_jalali(g_y, g_m, g_d);
+    var dateir = "📆『" + shamsi[0] + '/' + shamsi[1] + '/' + shamsi[2] + '』';
+    client.channels.cache.get("777846219640799242").setName(dateir);
+    console.log(`Changing Date IR To ${dateir}!`);
+});
+cron.schedule('5 * * * * *', function () {
+    ndt = new Date();
+    var g_y = ndt.getFullYear();
+    var g_m = ndt.getMonth() + 1;
+    var g_d = ndt.getDate();
+    var ghamari = gregorian_to_ghamari(g_y, g_m, g_d);
+    var dateAR = "📆『" + ghamari[0] + '/' + ghamari[1] + '/' + ghamari[2] + '』';
+    client.channels.cache.get("777846249621291038").setName(dateAR);
+    console.log(`Changing Date AR To ${dateAR}!`);
+});
 client.login(process.env.token);
 
 
