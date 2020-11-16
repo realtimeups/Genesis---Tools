@@ -519,7 +519,9 @@ cron.schedule('5 * * * * *', function () {
     console.log(`Changing Date AR To ${dateAR}!`);
 });
 cron.schedule('5 * * * * *', function() {
-           function nFormatter(num, digits) {
+
+        let myGuild = client.guilds.cache.get('680395962446774292');
+	           function nFormatter(num, digits) {
             var si = [
                 { value: 1, symbol: "" },
                 { value: 1E3, symbol: "k" },
@@ -543,14 +545,13 @@ cron.schedule('5 * * * * *', function() {
          * Tests
          */
         var tests = [
-            { num: `${memberCount}`, digits: 1 }
+            { num: `${myGuild.memberCount}`, digits: 1 }
 
         ];
         var i;
         for (i = 0; i < tests.length; i++) {
             console.log("nFormatter(" + tests[0].num + ", " + tests[0].digits + ") = " + nFormatter(tests[0].num, tests[0].digits));
         }
-        let myGuild = client.guilds.cache.get('680395962446774292');
         let memberCount = "🔥┇All Members: " + nFormatter(tests[0].num, tests[0].digits);
 	client.channels.cache.get("777941730443526186").setName(memberCount, "Members Channel");
 	console.log(`Changing Members Channels`);
