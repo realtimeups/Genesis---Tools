@@ -521,114 +521,21 @@ cron.schedule('5 * * * * *', function () {
 cron.schedule('5 * * * * *', function() {
 
         let myGuild = client.guilds.cache.get('680395962446774292');
-	           function nFormatter(num, digits) {
-            var si = [
-                { value: 1, symbol: "" },
-                { value: 1E3, symbol: "k" },
-                { value: 1E6, symbol: "M" },
-                { value: 1E9, symbol: "G" },
-                { value: 1E12, symbol: "T" },
-                { value: 1E15, symbol: "P" },
-                { value: 1E18, symbol: "E" }
-            ];
-            var rx = /\.0+$|(\.[0-9]*[1-9])0+$/;
-            var i;
-            for (i = si.length - 1; i > 0; i--) {
-                if (num >= si[i].value) {
-                    break;
-                }
-            }
-            return (num / si[i].value).toFixed(digits).replace(rx, "$1") + si[i].symbol;
-        }
-
-        /*
-         * Tests
-         */
-        var tests = [
-            { num: `${myGuild.memberCount}`, digits: 1 }
-
-        ];
-        var i;
-        for (i = 0; i < tests.length; i++) {
-            console.log("nFormatter(" + tests[0].num + ", " + tests[0].digits + ") = " + nFormatter(tests[0].num, tests[0].digits));
-        }
-        let memberCount = "🔥┇All Members: " + nFormatter(tests[0].num, tests[0].digits);
+        let memberCount = "🔥┇All Members: " + myGuild.memberCount;
 	client.channels.cache.get("777941730443526186").setName(memberCount, "Members Channel");
 	console.log(`Changing Members Channels`);
 });
 cron.schedule('5 * * * * *', function() {
 
         let myGuild = client.guilds.cache.get('687359247784345607');
-	           function nFormatter(num, digits) {
-            var si = [
-                { value: 1, symbol: "" },
-                { value: 1E3, symbol: "k" },
-                { value: 1E6, symbol: "M" },
-                { value: 1E9, symbol: "G" },
-                { value: 1E12, symbol: "T" },
-                { value: 1E15, symbol: "P" },
-                { value: 1E18, symbol: "E" }
-            ];
-            var rx = /\.0+$|(\.[0-9]*[1-9])0+$/;
-            var i;
-            for (i = si.length - 1; i > 0; i--) {
-                if (num >= si[i].value) {
-                    break;
-                }
-            }
-            return (num / si[i].value).toFixed(digits).replace(rx, "$1") + si[i].symbol;
-        }
-
-        /*
-         * Tests
-         */
-        var tests = [
-            { num: `${myGuild.memberCount}`, digits: 1 }
-
-        ];
-        var i;
-        for (i = 0; i < tests.length; i++) {
-            console.log("nFormatter(" + tests[0].num + ", " + tests[0].digits + ") = " + nFormatter(tests[0].num, tests[0].digits));
-        }
-        let memberCount = "🔥┇Gakarond: " + nFormatter(tests[0].num, tests[0].digits);
+        let memberCount = "🔥┇Gakarond: " + myGuild.memberCount;
 	client.channels.cache.get("777955436292734995").setName(memberCount, "Members Channel");
 	console.log(`Changing Members Channels`);
 });
 cron.schedule('5 * * * * *', function() {
 
         let myGuild = client.guilds.cache.get('680395962446774292');
-	           function nFormatter(num, digits) {
-            var si = [
-                { value: 1, symbol: "" },
-                { value: 1E3, symbol: "k" },
-                { value: 1E6, symbol: "M" },
-                { value: 1E9, symbol: "G" },
-                { value: 1E12, symbol: "T" },
-                { value: 1E15, symbol: "P" },
-                { value: 1E18, symbol: "E" }
-            ];
-            var rx = /\.0+$|(\.[0-9]*[1-9])0+$/;
-            var i;
-            for (i = si.length - 1; i > 0; i--) {
-                if (num >= si[i].value) {
-                    break;
-                }
-            }
-            return (num / si[i].value).toFixed(digits).replace(rx, "$1") + si[i].symbol;
-        }
-
-        /*
-         * Tests
-         */
-        var tests = [
-            { num: `${myGuild.memberCount}`, digits: 1 }
-
-        ];
-        var i;
-        for (i = 0; i < tests.length; i++) {
-            console.log("nFormatter(" + tests[0].num + ", " + tests[0].digits + ") = " + nFormatter(tests[0].num, tests[0].digits));
-        }
-        let memberCount = "🔥┇Genesis: " + nFormatter(tests[0].num, tests[0].digits);
+        let memberCount = "🔥┇Genesis: " + myGuild.memberCount;
 	client.channels.cache.get("777955609915293718").setName(memberCount, "Members Channel");
 	console.log(`Changing Members Channels`);
 });
