@@ -34,7 +34,7 @@ client.on('message', async message => {
             });
             if (ch.members.size < 1) {
                 setTimeout(() => {
-                    
+                    ch.delete('No User In Room')
                 }, 6000);
             }else{
                 return;
