@@ -28,7 +28,7 @@ client.on('message', async message => {
             return message.channel.send("```md\n# Err \n#Usage: !!among <room code>\n```")
         }
         if(args.length){
-            (await message.guild.channels.create(`Code: ${args[0]}`)).userLimit(10).setParent("779437695590989824");
+            (await message.guild.channels.create(`Code: ${args[0]}`)).setParent("779437695590989824");
 
             const channel = message.guild.channels.get("779439251241959475")
             channel.send(`@everyone \nGame Ba Code ${args[0]} Shoro Shod Dus Dashtid Berid Play Bedid<a:A9:683287687427391497>`)
