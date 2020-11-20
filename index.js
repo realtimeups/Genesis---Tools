@@ -37,7 +37,7 @@ client.on('message', async message => {
             if (ch.members.size < 1) {
                 setTimeout(() => {
                     ch.delete('No User In Room')
-			msg.delete()
+			msg.delete(10)
 			console.log("channel deleted");
                 }, 10000);
             }else{
