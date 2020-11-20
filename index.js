@@ -32,7 +32,7 @@ client.on('message', async message => {
                 type: 'voice',
                 parent: "779437695590989824"
             });
-            if (ch.members.size = 0) {
+            if (ch.members.size < 1) {
                 setTimeout(() => {
                     
                 }, 6000);
