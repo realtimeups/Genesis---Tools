@@ -39,7 +39,7 @@ client.on('message', async message => {
                     ch.delete('No User In Room')
 			
 			console.log("channel deleted");
-                }, 10000);
+                }, 30000);
             }else{
                 return;
             }
