@@ -12,10 +12,11 @@ client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
     client.user.setActivity('LOADING', { type: 'WATCHING' });
   setInterval(function() {
-          let myGuild = client.guilds.cache.get('680395962446774292');
-    let memberCount = myGuild.memberCount;
+          let genesis = client.guilds.cache.get('680395962446774292');
+    let nofear = client.guilds.cache.get('687359247784345607');
    client.user.setActivity(`Use ${prefix}help`, { type: 'WATCHING' });
-   client.user.setActivity(`💥Members:${memberCount}`, { type: 'WATCHING' });
+   client.user.setActivity(`💠Genesis:${genesis.memberCount}`, { type: 'WATCHING' });
+   client.user.setActivity(`💥NoFear:${nofear.memberCount}`, { type: 'WATCHING' });
 }, 5000)
 });
 client.on('message', async message => {
