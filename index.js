@@ -22,6 +22,30 @@ client.on('message', async message => {
     if (!message.content.startsWith(prefix) || message.author.bot) return;
     const args = message.content.slice(prefix.length).trim().split(' ');
     const command = args.shift().toLowerCase();
+	    if(command === 'rules'){
+        message.react("✅")
+        await message.delete
+        if(!args.length){
+            return message.channel.send("```md \n #Usage : !!rules <colorhex> <image>\n```")
+        }
+        if(args.length){
+        const rules = new Discord.MessageEmbed()
+        .setTitle(`${message.guild.name}`+"`s Rules")
+        .setColor(`${args[0]}`)
+        .setThumbnail(message.guild.iconURL({ size: 2048, dynamic: true }))
+        .setImage(args[1])
+            .addField("**<a:gif_15:721654708917370910>) Be Respectful**", "ادب رو تا حد امکان رعایت کنید" , false)
+            .addField("**<a:gif_15:721654708917370910>) Don't Discriminate**", "از هر گونه تبعیض دوری کنید", false)
+            .addField("**<a:gif_15:721654708917370910>) No Information Leaking**", "اطلاعات یا تصاویر شخصی افراد رو پخش نکنید", false)
+            .addField("**<a:gif_15:721654708917370910>) No Harassment**", "از آزار و اذیت افراد بپرهیزید", false)
+            .addField("**<a:gif_15:721654708917370910>) No Advertisement**", "هیچگونه تبلیغی از طریق این سرور مجاز نیست.", false)
+            .addField("**<a:gif_15:721654708917370910>) Use The Proper Channels**", "پست و پیام هاتون رو در کانال های مربوط بهشون بفرستید", false)
+            .addField("**<a:gif_15:721654708917370910>) No NSFW Content**", "پخش هرگونه محتوای مستهجن ممنوع هست", false)
+            .addField("**<a:gif_15:721654708917370910>) Listen to the Admins**", "به حرف ادمین های سرور گوش بدید", false)
+            message.channel.send(rules)
+        }
+
+    }
     if (command === 'meme') {
         let reddit = [
             "meme",
@@ -506,9 +530,9 @@ cron.schedule('5 * * * * *', function() {
 	console.log(`Changing Members Channels`);
 });
 cron.schedule('5 * * * * *', function() {
-
         let myGuild = client.guilds.cache.get('680395962446774292');
-	client.channels.cache.get("687359247784345607").setName(`💠┇Genesis: ${myGuild.memberCount}`, "Members Channel");
+        let memberCount = "💠┇Genessis: " + myGuild.memberCount;
+	client.channels.cache.get("779432947056902185").setName(memberCount, "Members Channel");
 	console.log(`Changing Members Channels`);
 });
 client.login(process.env.token);
