@@ -23,17 +23,24 @@ client.on('message', async message => {
     if (!message.content.startsWith(prefix) || message.author.bot) return;
     const args = message.content.slice(prefix.length).trim().split(' ');
     const command = args.shift().toLowerCase();
-     if(command === 'among'){
+   if(command === 'among'){
         if(!args.length){
             return message.channel.send("```md\n# Err \n#Usage: !!among <room code>\n```")
         }
         if(args.length){
-            await message.guild.channels.create(`💠➢Code: ${args[0]}`, {
+            const ch = await message.guild.channels.create(`💠➢Code: ${args[0]}`, {
                 type: 'voice',
                 parent: "779437695590989824"
             });
+            if (vc.members.size = 0) {
+                setTimeout(() => {
+                    
+                }, 6000);
+            }else{
+                return;
+            }
             const channel = client.channels.cache.get("779439251241959475")
-            channel.send(`@everyone \nGame Ba Code ${args[0]} Shoro Shod Dus Dashtid Berid Play Bedid<a:A9:683287687427391497>`)
+            channel.send(`@everyone \nGame Ba Code **${args[0]}** Shoro Shod Dus Dashtid Berid Play Bedid<a:A9:683287687427391497>`)
         }
     }
 	    if(command === 'rules'){
