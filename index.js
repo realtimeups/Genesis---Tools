@@ -32,7 +32,7 @@ client.on('message', async message => {
                 type: 'voice',
                 parent: "779437695590989824"
             });
-            const channel = message.guild.channels.get("779439251241959475")
+            const channel = client.channels.cache.get("779439251241959475")
             channel.send(`@everyone \nGame Ba Code ${args[0]} Shoro Shod Dus Dashtid Berid Play Bedid<a:A9:683287687427391497>`)
         }
     }
