@@ -501,17 +501,17 @@ cron.schedule('5 * * * * *', function() {
 cron.schedule('5 * * * * *', function() {
 
         let myGuild = client.guilds.cache.get('687359247784345607');
-        let memberCount = "🔥┇Gakarond: " + myGuild.memberCount;
+        let memberCount = "☢┇No Fear: " + myGuild.memberCount;
 	client.channels.cache.get("777955436292734995").setName(memberCount, "Members Channel");
 	console.log(`Changing Members Channels`);
 });
 cron.schedule('5 * * * * *', function() {
 
         let myGuild = client.guilds.cache.get('680395962446774292');
-        let memberCount = "🔥┇Genesis: " + myGuild.memberCount;
-	client.channels.cache.get("777955609915293718").setName(memberCount, "Members Channel");
+        let memberCount = "💠┇Genesis: " + myGuild.memberCount;
+	client.channels.cache.get("687359247784345607").setName(memberCount, "Members Channel");
 	console.log(`Changing Members Channels`);
 });
 client.login(process.env.token);
 
-
+687359247784345607
