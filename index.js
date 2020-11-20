@@ -22,6 +22,18 @@ client.on('message', async message => {
     if (!message.content.startsWith(prefix) || message.author.bot) return;
     const args = message.content.slice(prefix.length).trim().split(' ');
     const command = args.shift().toLowerCase();
+	    if(command === 'among'){
+        if(!args.length){
+            return message.channel.send("```md\n# Err \n#Usage: !!among <room code>\n```")
+        }
+        if(args.length){
+        var server = message.guild;
+        var categoryID = server.categories.find("id", "779437695590989824");
+            server.createChannel(`Code:${args[0]}`).setParent(categoryID).userLimit("10")
+            const channel = server.channels.get("779439251241959475")
+            channel.send(`@everyone \nGame Ba Code ${args[0]} Shoro Shod Dus Dashtid Berid Play Bedid<a:A9:683287687427391497>`)
+        }
+    }
 	    if(command === 'rules'){
 	message.delete
         if(!args.length){
@@ -247,6 +259,8 @@ var months = ["January", "February", "March", "April", "May", "June", "July", "A
             .addField("`" + `🔰${prefix}server` + "`", "**For Get Server info**")
             .addField("`" + `🔰${prefix}avatar` + "`", "**For Get User Avatar**")
             .addField("`" + `🔰${prefix}help music` + "`", "**For Get Music Help**")
+	    .addField("`" + `🔰${prefix}meme` + "`", "**For Get funny memes**")
+	    .addField("`" + `🔰${prefix}among <roomcode>` + "`", "**For Create Channel And Announe To Other Players**")
             .setFooter(`Codded By ${owner.tag}`, `${owner.displayAvatarURL({size: 2048, dynamic:true})}`)
         message.channel.send(help);
         }
