@@ -23,8 +23,7 @@ client.on('message', async message => {
     const args = message.content.slice(prefix.length).trim().split(' ');
     const command = args.shift().toLowerCase();
 	    if(command === 'rules'){
-        message.react("✅")
-        await message.delete
+	message.delete
         if(!args.length){
             return message.channel.send("```md \n #Usage : !!rules <colorhex> <image>\n```")
         }
