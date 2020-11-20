@@ -22,16 +22,15 @@ client.on('message', async message => {
     if (!message.content.startsWith(prefix) || message.author.bot) return;
     const args = message.content.slice(prefix.length).trim().split(' ');
     const command = args.shift().toLowerCase();
-    if(command === 'among'){
+     if(command === 'among'){
         if(!args.length){
             return message.channel.send("```md\n# Err \n#Usage: !!among <room code>\n```")
         }
         if(args.length){
-        var server = message.guild;
-            const ch = server.createChannel(`Code:${args[0]}`)
+            const ch = message.guild.channels.create(`Code: ${args[0]}`)
             ch.setParent("779437695590989824");
             ch.userLimit("10");
-            const channel = server.channels.get("779439251241959475")
+            const channel = message.guild.channels.get("779439251241959475")
             channel.send(`@everyone \nGame Ba Code ${args[0]} Shoro Shod Dus Dashtid Berid Play Bedid<a:A9:683287687427391497>`)
         }
     }
