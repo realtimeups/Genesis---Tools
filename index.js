@@ -42,6 +42,7 @@ client.on('message', async message => {
             .addField("**<a:gif_15:721654708917370910>) Use The Proper Channels**", "پست و پیام هاتون رو در کانال های مربوط بهشون بفرستید", false)
             .addField("**<a:gif_15:721654708917370910>) No NSFW Content**", "پخش هرگونه محتوای مستهجن ممنوع هست", false)
             .addField("**<a:gif_15:721654708917370910>) Listen to the Admins**", "به حرف ادمین های سرور گوش بدید", false)
+		.setFooter(message.guild.name, message.guild.iconURL({ size: 2048, dynamic: true }))
             message.channel.send(rules)
         }
 
