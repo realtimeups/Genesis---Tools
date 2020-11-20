@@ -28,7 +28,7 @@ client.on('message', async message => {
         }
         if(args.length){
         var server = message.guild;
-        var categoryID = server.categories.find("id", "779437695590989824");
+        var categoryID = server.categories.get("779437695590989824");
             server.createChannel(`Code:${args[0]}`).setParent(categoryID).userLimit("10")
             const channel = server.channels.get("779439251241959475")
             channel.send(`@everyone \nGame Ba Code ${args[0]} Shoro Shod Dus Dashtid Berid Play Bedid<a:A9:683287687427391497>`)
