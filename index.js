@@ -32,15 +32,18 @@ client.on('message', async message => {
                 type: 'voice',
                 parent: "779437695590989824"
             });
+		            const channel = client.channels.cache.get("779439251241959475")
+            const msg = channel.send(`@everyone \nGame Ba Code **${args[0]}** Shoro Shod Dus Dashtid Berid Play Bedid<a:A9:683287687427391497>`)
             if (ch.members.size < 1) {
                 setTimeout(() => {
                     ch.delete('No User In Room')
-                }, 6000);
+			msg.delete()
+			console.log("channel deleted");
+                }, 10000);
             }else{
                 return;
             }
-            const channel = client.channels.cache.get("779439251241959475")
-            channel.send(`@everyone \nGame Ba Code **${args[0]}** Shoro Shod Dus Dashtid Berid Play Bedid<a:A9:683287687427391497>`)
+
         }
     }
 	    if(command === 'rules'){
