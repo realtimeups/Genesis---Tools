@@ -526,6 +526,7 @@ cron.schedule('5 * * * * *', function () {
     var g_y = ndt.getFullYear();
     var g_m = ndt.getMonth() + 1;
     var g_d = ndt.getDate();
+
     var shamsi = gregorian_to_jalali(g_y, g_m, g_d);
     var dateir = "📆『" + shamsi[0] + '/' + shamsi[1] + '/' + shamsi[2] + '』';
     client.channels.cache.get("777846219640799242").setName(dateir);
@@ -560,6 +561,17 @@ cron.schedule('5 * * * * *', function() {
         let memberCount = "💠┇Genessis: " + myGuild.memberCount;
 	client.channels.cache.get("779432947056902185").setName(memberCount, "Members Channel");
 	console.log(`Changing Members Channels`);
+});
+cron.schedule('5 * * * * *', function () {
+    ndt = new Date();
+    var g_y = ndt.getFullYear();
+    var g_m = ndt.getMonth() + 1;
+    var g_d = ndt.getDate();
+var months = ["فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند"];
+    var shamsi = gregorian_to_jalali(g_y, months[g_m], g_d);
+    var dateir = "⏳┇" + shamsi[0] + '•' + shamsi[1] + '•' + shamsi[2];
+    client.channels.cache.get("779764579588374559").setName(dateir);
+    console.log(`Changing Date IR To ${dateir}!`);
 });
 client.login(process.env.token);
 
