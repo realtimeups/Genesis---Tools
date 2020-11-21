@@ -17,6 +17,7 @@
     "moment": "^2.29.1",
     "node-cron": "^2.0.3",
     "pretty-ms": "^7.0.1",
+    "axios": "^0.21.0",
     "random-puppy": "^1.1.0"
   }
 }
