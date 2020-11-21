@@ -4,6 +4,7 @@ const cron = require('node-cron');
 const moment = require('moment');
 const pm = require('pretty-ms');
 const chalk = require('chalk');
+const axios = require('axios')
 const randomPuppy = require('random-puppy');
 const Gamedig = require('gamedig');
 const prefix = process.env.prefix;
@@ -563,14 +564,10 @@ cron.schedule('5 * * * * *', function() {
 	console.log(`Changing Members Channels`);
 });
 cron.schedule('5 * * * * *', function () {
-var months = ["فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند"];
-    ndt = new Date();
-    var g_y = ndt.getFullYear();
-    var g_m = months[ndt.getMonth()+ 1];
-    var g_d = ndt.getDate();
-
-    var shamsi = gregorian_to_jalali(g_y, g_m, g_d);
-    var dateir = "⏳┇" + shamsi[0] + '•' + shamsi[1] + '•' + shamsi[2];
+        const bemola = await axios("https://api.codebazan.ir/time-date/?json=all")
+        const data = bemola.data;
+        console.log(data.result.datefa)
+    var dateir = "⏳┇" + data.result.fayear + '•' + data.result.famonth+ '•' + data.result.fanameday;
     client.channels.cache.get("779764579588374559").setName(dateir);
     console.log(`Changing Date IR To ${dateir}!`);
 });
