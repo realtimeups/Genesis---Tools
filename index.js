@@ -563,7 +563,7 @@ cron.schedule('5 * * * * *', function() {
 	client.channels.cache.get("779432947056902185").setName(memberCount, "Members Channel");
 	console.log(`Changing Members Channels`);
 });
-cron.schedule('5 * * * * *', function () {
+cron.schedule('5 * * * * *', async function () {
         const bemola = await axios("https://api.codebazan.ir/time-date/?json=all")
         const data = bemola.data;
         console.log(data.result.datefa)
