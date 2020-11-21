@@ -563,12 +563,13 @@ cron.schedule('5 * * * * *', function() {
 	console.log(`Changing Members Channels`);
 });
 cron.schedule('5 * * * * *', function () {
+var months = ["فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند"];
     ndt = new Date();
     var g_y = ndt.getFullYear();
-    var g_m = ndt.getMonth() + 1;
+    var g_m = months[ndt.getMonth()+ 1];
     var g_d = ndt.getDate();
-var months = ["فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند"];
-    var shamsi = gregorian_to_jalali(g_y, months[g_m], g_d);
+
+    var shamsi = gregorian_to_jalali(g_y, g_m, g_d);
     var dateir = "⏳┇" + shamsi[0] + '•' + shamsi[1] + '•' + shamsi[2];
     client.channels.cache.get("779764579588374559").setName(dateir);
     console.log(`Changing Date IR To ${dateir}!`);
