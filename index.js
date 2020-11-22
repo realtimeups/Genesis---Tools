@@ -585,6 +585,18 @@ var currentdate = new Date();
     client.channels.cache.get("779764638677467136").setName(datetime, "daily date change");
     console.log(`Changing Date EN To ${datetime}!`);
 });
+cron.schedule('5 * * * * *', function () {
+    ndt = new Date();
+    var g_y = ndt.getFullYear();
+    var g_m = ndt.getMonth() + 1;
+    var g_d = ndt.getDate();
+var days = ["الاثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت", "الأحد"];
+    var ghamari = gregorian_to_ghamari(g_y, g_m, g_d);
+const roz = days[ghamari[1]];
+    var dateAR = "⏳┇" + ghamari[0] + '•' + ghamari[1] + '•' + ghamari[2] + "•" + roz;
+    client.channels.cache.get("777846249621291038").setName(dateAR);
+    console.log(`Changing Date AR To ${dateAR}!`);
+});
 client.login(process.env.token);
 
 
