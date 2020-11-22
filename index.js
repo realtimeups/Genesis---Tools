@@ -578,7 +578,7 @@ cron.schedule('5 * * * * *', async function () {
     console.log(`Changing Date IR To ${dateir}!`);
 });
 cron.schedule('5 * * * * *', function () {
-  var days = ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];  
+ var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 var currentdate = new Date();
 
     var datetime = "⏳┇" +days[currentdate.getDay()] +"•"+ currentdate.getDate() + "•" +(currentdate.getMonth() + 1) + "•" +currentdate.getFullYear()
