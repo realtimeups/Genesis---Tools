@@ -573,7 +573,7 @@ cron.schedule('5 * * * * *', async function () {
     var g_d = ndt.getDate();
 
     var shamsi = gregorian_to_jalali(g_y, g_m, g_d);
-    var dateir = "⏳┇" + shamsi[0] + '/' + shamsi[1] + '/' + shamsi[2] + data.result.fanameday;
+    var dateir = "⏳┇" + shamsi[0] + '•' + shamsi[1] + '•' + shamsi[2] +"•" + data.result.fanameday;
     client.channels.cache.get("779764579588374559").setName(dateir);
     console.log(`Changing Date IR To ${dateir}!`);
 });
