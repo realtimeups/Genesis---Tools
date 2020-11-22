@@ -564,10 +564,16 @@ cron.schedule('5 * * * * *', function() {
 	console.log(`Changing Members Channels`);
 });
 cron.schedule('5 * * * * *', async function () {
+       
         const bemola = await axios("https://api.codebazan.ir/time-date/?json=all")
         const data = bemola.data;
-        console.log(data.result.datefa)
-    var dateir = "⏳┇" + data.result.fayear + ' • ' + data.result.famonth+ ' • ' + data.result.faday;
+    ndt = new Date();
+    var g_y = ndt.getFullYear();
+    var g_m = ndt.getMonth() + 1;
+    var g_d = ndt.getDate();
+
+    var shamsi = gregorian_to_jalali(g_y, g_m, g_d);
+    var dateir = "⏳┇" + shamsi[0] + '/' + shamsi[1] + '/' + shamsi[2] + data.result.fanameday;
     client.channels.cache.get("779764579588374559").setName(dateir);
     console.log(`Changing Date IR To ${dateir}!`);
 });
