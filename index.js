@@ -567,7 +567,7 @@ cron.schedule('5 * * * * *', async function () {
         const bemola = await axios("https://api.codebazan.ir/time-date/?json=all")
         const data = bemola.data;
         console.log(data.result.datefa)
-    var dateir = "⏳┇" + data.result.fayear + ' • ' + data.result.famonth+ ' • ' + data.result.fanameday;
+    var dateir = "⏳┇" + data.result.fayear + ' • ' + data.result.faday+ ' • ' + data.result.famonth;
     client.channels.cache.get("779764579588374559").setName(dateir);
     console.log(`Changing Date IR To ${dateir}!`);
 });
