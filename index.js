@@ -602,7 +602,7 @@ cron.schedule('5 * * * * *', async function () {
     var g_d = ndt.getDate();
 
     var shamsi = gregorian_to_jalali(g_y, g_m, g_d);
-    var dateir = "⏳┇" + shamsi[0] + ' • ' + shamsi[1] + ' • ' + shamsi[2] +" • " + data.result.fanameday;
+    var dateir = "⏳┇ " + shamsi[0] + '•' + shamsi[1] + '•' + shamsi[2] +"•" + data.result.fanameday;
     client.channels.cache.get("779764579588374559").setName(dateir);
     console.log(`Changing Date IR To ${dateir}!`);
 });
@@ -610,7 +610,7 @@ cron.schedule('5 * * * * *', function () {
  var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 var currentdate = new Date();
 
-    var datetime = "⏳┇" +days[currentdate.getDay()] +" • "+ currentdate.getDate() + " • " +(currentdate.getMonth() + 1) + " • " +currentdate.getFullYear()
+    var datetime = "⏳┇ " +days[currentdate.getDay()] +"•"+ currentdate.getDate() + "•" +(currentdate.getMonth() + 1) + "•" +currentdate.getFullYear()
     client.channels.cache.get("779764638677467136").setName(datetime, "daily date change");
     console.log(`Changing Date EN To ${datetime}!`);
 });
@@ -622,7 +622,7 @@ cron.schedule('5 * * * * *', function () {
 var days = ["الثلاثاء", "الأربعاء", "الجمعة", "السبت", "الأحد", "الاثنين", "الثلاثاء"];
     var ghamari = gregorian_to_ghamari(g_y, g_m, g_d);
 const roz = days[ghamari[1]];
-    var dateAR = "⏳┇" + ghamari[0] + ' • ' + ghamari[1] + ' • ' + ghamari[2] + " • " + roz;
+    var dateAR = "⏳┇ " + ghamari[0] + '•' + ghamari[1] + '•' + ghamari[2] + "•" + roz;
     client.channels.cache.get("779764842826432532").setName(dateAR);
     console.log(`Changing Date AR To ${dateAR}!`);
 });
