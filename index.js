@@ -590,7 +590,7 @@ cron.schedule('5 * * * * *', function () {
     var g_y = ndt.getFullYear();
     var g_m = ndt.getMonth() + 1;
     var g_d = ndt.getDate();
-var days = ["الاثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت", "الأحد"];
+var days = ["السبت", "الأحد", "الاثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة"];
     var ghamari = gregorian_to_ghamari(g_y, g_m, g_d);
 const roz = days[ghamari[1]];
     var dateAR = "⏳┇" + ghamari[0] + '•' + ghamari[1] + '•' + ghamari[2] + "•" + roz;
