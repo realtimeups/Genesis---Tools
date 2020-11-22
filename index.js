@@ -581,7 +581,7 @@ cron.schedule('5 * * * * *', function () {
   var days = ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];  
 var currentdate = new Date();
 
-    var datetime = "⏳┇" days[currentdate.getDay()] +"•"+ currentdate.getDate() + "•" +(currentdate.getMonth() + 1) + "•" +currentdate.getFullYear()
+    var datetime = "⏳┇" +days[currentdate.getDay()] +"•"+ currentdate.getDate() + "•" +(currentdate.getMonth() + 1) + "•" +currentdate.getFullYear()
     client.channels.cache.get("779764638677467136").setName(datetime, "daily date change");
     console.log(`Changing Date EN To ${datetime}!`);
 });
