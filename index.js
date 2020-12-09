@@ -17,7 +17,7 @@ client.on('ready', () => {
     let nofear = client.guilds.cache.get('687359247784345607');
    client.user.setActivity(`Use ${prefix}help`, { type: 'WATCHING' });
    client.user.setActivity(`💠Genesis:${genesis.memberCount}`, { type: 'WATCHING' });
-   client.user.setActivity(`💥NoFear:${nofear.memberCount}`, { type: 'WATCHING' });
+   client.user.setActivity(`💥GalakRond:${nofear.memberCount}`, { type: 'WATCHING' });
 }, 5000)
 });
 client.on('message', async message => {
@@ -29,41 +29,19 @@ if(!args.length){
     return message.channel.send("```md\n# Usage !!status <mode>");
     }
     if(args[0] === "update"){
-        client.channels.cache.get("779765332381925376").setName("🔧┇Status : Updating ⛏", "Status Changed To UPDATING");
+        client.channels.cache.get("786235695030337536").setName("🔧┇Status : Updating ⛏", "Status Changed To UPDATING");
     }
         if (args[0] === "safe") {
-            client.channels.cache.get("779765332381925376").setName("🔧┇Status : Safe 🍏", "Status Changed To safe");
+            client.channels.cache.get("786235695030337536").setName("🔧┇Status : Safe 🍏", "Status Changed To safe");
         }
         if (args[0] === "unsafe") {
-            client.channels.cache.get("779765332381925376").setName("🔧┇Status : Unsafe ⚠", "Status Changed To unsafe");
+            client.channels.cache.get("786235695030337536").setName("🔧┇Status : Unsafe ⚠", "Status Changed To unsafe");
         }
         if (args[0] === "na") {
-            client.channels.cache.get("779765332381925376").setName("🔧┇Status : N/A❓", "Status Changed To NaN");
+            client.channels.cache.get("786235695030337536").setName("🔧┇Status : N/A❓", "Status Changed To NaN");
         }
 }
-	if(command === 'among'){
-        if(!args.length){
-            return message.channel.send("```md\n# Err \n#Usage: !!among <room code>\n```")
-        }
-        if(args.length){
-            const ch = await message.guild.channels.create(`💠➢Code: ${args[0]}`, {
-                type: 'voice',
-                parent: "779437695590989824"
-            });
-		            const channel = client.channels.cache.get("779439251241959475")
-            const msg = channel.send(`@everyone \nGame Ba Code **(${args[0]})** Shoro Shod Dus Dashtid Berid Play Bedid<a:A9:683287687427391497>`)
-            if (ch.members.size < 1) {
-                setTimeout(() => {
-                    ch.delete('No User In Room')
-			
-			console.log("channel deleted");
-                }, 30000);
-            }else{
-                return;
-            }
 
-        }
-    }
 	    if(command === 'rules'){
 	message.delete
         if(!args.length){
@@ -531,65 +509,17 @@ function jalali_to_gregorian(jy, jm, jd) {
     for (gm = 0; gm < 13 && gd > sal_a[gm]; gm++) gd -= sal_a[gm];
     return [gy, gm, gd];
 }
-cron.schedule('5 * * * * *', function () {
-    var currentdate = new Date();
-    var datetime = "📆『" + currentdate.getDate() + "/" +
-        (currentdate.getMonth() + 1) + "/" +
-        currentdate.getFullYear() + "』"
-    client.channels.cache.get("777846233699057694").setName(datetime, "daily date change");
-    console.log(`Changing Date EN To ${datetime}!`);
-});
-cron.schedule('5 * * * * *', function () {
-    ndt = new Date();
-    var g_y = ndt.getFullYear();
-    var g_m = ndt.getMonth() + 1;
-    var g_d = ndt.getDate();
 
-    var shamsi = gregorian_to_jalali(g_y, g_m, g_d);
-    var dateir = "📆『" + shamsi[0] + '/' + shamsi[1] + '/' + shamsi[2] + '』';
-    client.channels.cache.get("777846219640799242").setName(dateir);
-    console.log(`Changing Date IR To ${dateir}!`);
-});
-cron.schedule('5 * * * * *', function () {
-    ndt = new Date();
-    var g_y = ndt.getFullYear();
-    var g_m = ndt.getMonth() + 1;
-    var g_d = ndt.getDate();
-    var ghamari = gregorian_to_ghamari(g_y, g_m, g_d);
-    var dateAR = "📆『" + ghamari[0] + '/' + ghamari[1] + '/' + ghamari[2] + '』';
-    client.channels.cache.get("777846249621291038").setName(dateAR);
-    console.log(`Changing Date AR To ${dateAR}!`);
-});
-cron.schedule('5 * * * * *', function() {
-
-        let myGuild = client.guilds.cache.get('680395962446774292');
-        let memberCount = "🔥┇All Members: " + myGuild.memberCount;
-	client.channels.cache.get("777941730443526186").setName(memberCount, "Members Channel");
-	console.log(`Changing Members Channels`);
-});
-cron.schedule('5 * * * * *', function() {
-
-        let myGuild = client.guilds.cache.get('687359247784345607');
-        let memberCount = "☢┇No Fear: " + myGuild.memberCount;
-	client.channels.cache.get("777955436292734995").setName(memberCount, "Members Channel");
-	console.log(`Changing Members Channels`);
-});
-cron.schedule('5 * * * * *', function() {
-        let myGuild = client.guilds.cache.get('680395962446774292');
-        let memberCount = "💠┇Genessis: " + myGuild.memberCount;
-	client.channels.cache.get("779432947056902185").setName(memberCount, "Members Channel");
-	console.log(`Changing Members Channels`);
-});
 cron.schedule('5 * * * * *', function() {
         let myGuild = client.guilds.cache.get('680395962446774292');
         let memberCount = "💎┇Members: " + myGuild.memberCount;
-	client.channels.cache.get("779765170456231946").setName(memberCount, "Members Channel");
+	client.channels.cache.get("786235679884705812").setName(memberCount, "Members Channel");
 	console.log(`Changing Members Channels`);
 });
 cron.schedule('5 * * * * *', function() {
         let myGuild = client.guilds.cache.get('687359247784345607');
-        let memberCount = "⭕┇NoFear: " + myGuild.memberCount;
-	client.channels.cache.get("779765419513741343").setName(memberCount, "Members Channel");
+        let memberCount = "⭕┇Galakrond: " + myGuild.memberCount;
+	client.channels.cache.get("786235687765540864").setName(memberCount, "Members Channel");
 	console.log(`Changing Members Channels`);
 });
 cron.schedule('5 * * * * *', async function () {
@@ -603,7 +533,7 @@ cron.schedule('5 * * * * *', async function () {
 
     var shamsi = gregorian_to_jalali(g_y, g_m, g_d);
     var dateir = "⏳┇ " + shamsi[0] + '•' + shamsi[1] + '•' + shamsi[2] +"•" + data.result.fanameday;
-    client.channels.cache.get("779764579588374559").setName(dateir);
+    client.channels.cache.get("786235702999777280").setName(dateir);
     console.log(`Changing Date IR To ${dateir}!`);
 });
 cron.schedule('5 * * * * *', function () {
@@ -611,7 +541,7 @@ cron.schedule('5 * * * * *', function () {
 var currentdate = new Date();
 
     var datetime = "⏳┇ " +days[currentdate.getDay()] +"•"+ currentdate.getDate() + "•" +(currentdate.getMonth() + 1) + "•" +currentdate.getFullYear()
-    client.channels.cache.get("779764638677467136").setName(datetime, "daily date change");
+    client.channels.cache.get("786235711291785218").setName(datetime, "daily date change");
     console.log(`Changing Date EN To ${datetime}!`);
 });
 cron.schedule('5 * * * * *', function () {
@@ -623,7 +553,7 @@ cron.schedule('5 * * * * *', function () {
     var ghamari = gregorian_to_ghamari(g_y, g_m, g_d);
 const roz = days[ndt.getDay()];
     var dateAR = "⏳┇ " + ghamari[0] + '•' + ghamari[1] + '•' + ghamari[2] + "•" + roz;
-    client.channels.cache.get("779764842826432532").setName(dateAR);
+    client.channels.cache.get("786236254618255400").setName(dateAR);
     console.log(`Changing Date AR To ${dateAR}!`);
 });
 client.login(process.env.token);
