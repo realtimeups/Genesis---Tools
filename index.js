@@ -25,7 +25,8 @@ client.on('message', async message => {
     const command = args.shift().toLowerCase();
 	 if(command === 'new'){
         const embed = new Discord.MessageEmbed()
-        .setAuthor("درخواست شما ثبت شد")
+        .setAuthor(`درخواست شما ثبت شد`)
+	.setTitle(message.author.tag)
         .setDescription("لطفا در چنل منتظر بمانید")
         .setColor("#0090ff")
         .setFooter("Atlantis Server", message.guild.iconURL({ size: 2048, dynamic: true }))
