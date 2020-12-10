@@ -13,11 +13,10 @@ client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
     client.user.setActivity('LOADING', { type: 'WATCHING' });
   setInterval(function() {
-          let genesis = client.guilds.cache.get('680395962446774292');
-    let nofear = client.guilds.cache.get('687359247784345607');
+          let genesis = client.guilds.cache.get('780847249546543145');
    client.user.setActivity(`Use ${prefix}help`, { type: 'WATCHING' });
-   client.user.setActivity(`💧Caspian:${genesis.memberCount}`, { type: 'WATCHING' });
-   client.user.setActivity(`💥GalakRond:${nofear.memberCount}`, { type: 'WATCHING' });
+   client.user.setActivity(`💧ATLANTIS:${genesis.memberCount}`, { type: 'WATCHING' });
+   client.user.setActivity(`💧ATLANTIS:${genesis.memberCount}`, { type: 'WATCHING' });
 }, 5000)
 });
 client.on('message', async message => {
@@ -29,16 +28,16 @@ if(!args.length){
     return message.channel.send("```md\n# Usage !!status <mode>");
     }
     if(args[0] === "update"){
-        client.channels.cache.get("786375313528455209").setName("🔨┇Status : Updating 🔑", "Status Changed To UPDATING");
+        client.channels.cache.get("786597127895515176").setName("🔨┇Status : Updating 🔑", "Status Changed To UPDATING");
     }
         if (args[0] === "safe") {
-            client.channels.cache.get("786375313528455209").setName("🔨┇Status : Safe 🍏", "Status Changed To safe");
+            client.channels.cache.get("786597127895515176").setName("🔨┇Status : Safe 🍏", "Status Changed To safe");
         }
         if (args[0] === "unsafe") {
-            client.channels.cache.get("786375313528455209").setName("🔨┇Status : Unsafe 🩸", "Status Changed To unsafe");
+            client.channels.cache.get("786597127895515176").setName("🔨┇Status : Unsafe 🩸", "Status Changed To unsafe");
         }
         if (args[0] === "na") {
-            client.channels.cache.get("786375313528455209").setName("🔨┇Status : N/A❓", "Status Changed To NaN");
+            client.channels.cache.get("786597127895515176").setName("🔨┇Status : N/A❓", "Status Changed To NaN");
         }
 }
 
@@ -512,16 +511,11 @@ function jalali_to_gregorian(jy, jm, jd) {
 
 cron.schedule('5 * * * * *', function() {
         let myGuild = client.guilds.cache.get('680395962446774292');
-        let memberCount = "💧┇All Boats: " + myGuild.memberCount;
-	client.channels.cache.get("786375312484204605").setName(memberCount, "Members Channel");
+        let memberCount = "💧┇All Users: " + myGuild.memberCount;
+	client.channels.cache.get("786597142104899623").setName(memberCount, "Members Channel");
 	console.log(`Changing Members Channels`);
 });
-cron.schedule('5 * * * * *', function() {
-        let myGuild = client.guilds.cache.get('687359247784345607');
-        let memberCount = "⭕┇Galakrond: " + myGuild.memberCount;
-	client.channels.cache.get("786375314443075651").setName(memberCount, "Members Channel");
-	console.log(`Changing Members Channels`);
-});
+
 cron.schedule('5 * * * * *', async function () {
        
         const bemola = await axios("https://api.codebazan.ir/time-date/?json=all")
@@ -533,7 +527,7 @@ cron.schedule('5 * * * * *', async function () {
 
     var shamsi = gregorian_to_jalali(g_y, g_m, g_d);
     var dateir = "⏳┇ " + shamsi[0] + '•' + shamsi[1] + '•' + shamsi[2] +"•" + data.result.fanameday;
-    client.channels.cache.get("786375315588120588").setName(dateir);
+    client.channels.cache.get("786597155016146944").setName(dateir);
     console.log(`Changing Date IR To ${dateir}!`);
 });
 cron.schedule('5 * * * * *', function () {
@@ -541,7 +535,7 @@ cron.schedule('5 * * * * *', function () {
 var currentdate = new Date();
 
     var datetime = "⏳┇ " +days[currentdate.getDay()] +"•"+ currentdate.getDate() + "•" +(currentdate.getMonth() + 1) + "•" +currentdate.getFullYear()
-    client.channels.cache.get("786375317446983691").setName(datetime, "daily date change");
+    client.channels.cache.get("786597169414668288").setName(datetime, "daily date change");
     console.log(`Changing Date EN To ${datetime}!`);
 });
 cron.schedule('5 * * * * *', function () {
@@ -553,7 +547,7 @@ cron.schedule('5 * * * * *', function () {
     var ghamari = gregorian_to_ghamari(g_y, g_m, g_d);
 const roz = days[ndt.getDay()];
     var dateAR = "⏳┇ " + ghamari[0] + '•' + ghamari[1] + '•' + ghamari[2] + "•" + roz;
-    client.channels.cache.get("786375318830841867").setName(dateAR);
+    client.channels.cache.get("786597186082177024").setName(dateAR);
     console.log(`Changing Date AR To ${dateAR}!`);
 });
 client.login(process.env.token);
