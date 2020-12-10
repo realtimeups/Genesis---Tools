@@ -23,6 +23,15 @@ client.on('message', async message => {
     if (!message.content.startsWith(prefix) || message.author.bot) return;
     const args = message.content.slice(prefix.length).trim().split(' ');
     const command = args.shift().toLowerCase();
+	 if(command === 'new'){
+        const embed = new Discord.MessageEmbed()
+        .setAuthor("درخواست شما ثبت شد")
+        .setDescription("لطفا در چنل منتظر بمانید")
+        .setColor("#0090ff")
+        .setFooter("Atlantis Server", message.guild.iconURL({ size: 2048, dynamic: true }))
+        message.channel.send(embed)
+        client.channels.cache.get("786608656191586315").send(`@everyone\nUser: <@${message.author.tag}>\nAdmin Haye Aziz Residegi Knid`);
+    }
        if(command === 'status'){
 if(!args.length){
     return message.channel.send("```md\n# Usage !!status <mode>");
