@@ -31,7 +31,7 @@ client.on('message', async message => {
         .setColor("#0090ff")
         .setFooter("Atlantis Server", message.guild.iconURL({ size: 2048, dynamic: true }))
         message.channel.send(embed)
-        client.channels.cache.get("786608656191586315").send(`@everyone\nUser: <@${message.author.id}>\nAdmin Haye Aziz Residegi Knid`);
+        client.channels.cache.get("786608656191586315").send(`@everyone\nUser: <@${message.author.id}>\nDarKhast Memberi Dare\nAdmin Haye Aziz Residegi Knid`);
     }
        if(command === 'status'){
 if(!args.length){
