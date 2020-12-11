@@ -277,7 +277,6 @@ var months = ["January", "February", "March", "April", "May", "June", "July", "A
             .addField("`" + `🔰${prefix}avatar` + "`", "**For Get User Avatar**")
             .addField("`" + `🔰${prefix}help music` + "`", "**For Get Music Help**")
 	    .addField("`" + `🔰${prefix}meme` + "`", "**For Get funny memes**")
-	    .addField("`" + `🔰${prefix}among <roomcode>` + "`", "**For Create Channel And Announe To Other Players**")
             .setFooter(`Codded By ${owner.tag}`, `${owner.displayAvatarURL({size: 2048, dynamic:true})}`)
         message.channel.send(help);
         }
