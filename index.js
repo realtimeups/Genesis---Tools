@@ -14,8 +14,8 @@ client.on('ready', () => {
     setInterval(() => {
         let guild = client.guilds.cache.get('680395962446774292');
         /* At the first filter all guild channels to type = voice, then map their members count and get summ with reduce */
-        let membersInVoice = guild.channels.filter(channel => channel.type === 'voice').map(c => c.members.size).reduce((a, b) => a + b, 0)
-        let VoiceCountChannel = guild.channels.get("789783230924193864");
+        let membersInVoice = guild.channels.cache.filter(channel => channel.type === 'voice').map(c => c.members.size).reduce((a, b) => a + b, 0)
+        let VoiceCountChannel = guild.channels.cache.get("789783230924193864");
         VoiceCountChannel.setName(`🎤〣TotalMic: ${membersInVoice}`);
         console.log(membersInVoice)
     }, 5000);
