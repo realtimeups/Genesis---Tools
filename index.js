@@ -10,15 +10,6 @@ const Gamedig = require('gamedig');
 const prefix = process.env.prefix;
 client.on('ready', () => {
 
-  const channel = client.channels.get("789783228630040576");
-  if (!channel) return console.error("The channel does not exist!");
-  channel.join().then(connection => {
-    // Yay, it worked!
-    console.log("Successfully connected.");
-  }).catch(e => {
-    // Oh no, it errored! Let's log it to console :)
-    console.error(e);
-  });
 
 
 
