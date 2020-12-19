@@ -10,13 +10,29 @@ const Gamedig = require('gamedig');
 const prefix = process.env.prefix;
 client.on('ready', () => {
 
+  const channel = client.channels.get("789783228630040576");
+  if (!channel) return console.error("The channel does not exist!");
+  channel.join().then(connection => {
+    // Yay, it worked!
+    console.log("Successfully connected.");
+  }).catch(e => {
+    // Oh no, it errored! Let's log it to console :)
+    console.error(e);
+  });
+
+
+
+
+
+
+
     console.log(`Logged in as ${client.user.tag}!`);
     client.user.setActivity('LOADING', { type: 'WATCHING' });
   setInterval(function() {
-          let genesis = client.guilds.cache.get('780847249546543145');
+          let genesis = client.guilds.cache.get('680395962446774292');
    client.user.setActivity(`Use ${prefix}help`, { type: 'WATCHING' });
-   client.user.setActivity(`💧ATLANTIS:${genesis.memberCount}`, { type: 'WATCHING' });
-   client.user.setActivity(`💧ATLANTIS:${genesis.memberCount}`, { type: 'WATCHING' });
+   client.user.setActivity(`⚡LIGHTNING:${genesis.memberCount}`, { type: 'WATCHING' });
+   client.user.setActivity(`⚡LIGHTNING:${genesis.memberCount}`, { type: 'WATCHING' });
 }, 5000)
 });
 client.on('message', async message => {
@@ -519,9 +535,9 @@ function jalali_to_gregorian(jy, jm, jd) {
 }
 
 cron.schedule('5 * * * * *', function() {
-        let myGuild = client.guilds.cache.get('780847249546543145');
-        let memberCount = "💧┇All Users: " + myGuild.memberCount;
-	client.channels.cache.get("786597142104899623").setName(memberCount, "Members Channel");
+        let myGuild = client.guilds.cache.get('680395962446774292');
+        let memberCount = "🌒〣All Users: " + myGuild.memberCount;
+	client.channels.cache.get("789783229476503582").setName(memberCount, "Members Channel");
 	console.log(`Changing Members Channels`);
 });
 
@@ -535,16 +551,16 @@ cron.schedule('5 * * * * *', async function () {
     var g_d = ndt.getDate();
 
     var shamsi = gregorian_to_jalali(g_y, g_m, g_d);
-    var dateir = "⏳┇ " + shamsi[0] + '•' + shamsi[1] + '•' + shamsi[2] +"•" + data.result.fanameday;
-    client.channels.cache.get("786597155016146944").setName(dateir);
+    var dateir = "⏳〣 " + shamsi[0] + '•' + shamsi[1] + '•' + shamsi[2] +"•" + data.result.fanameday;
+    client.channels.cache.get("789783233008893963").setName(dateir);
     console.log(`Changing Date IR To ${dateir}!`);
 });
 cron.schedule('5 * * * * *', function () {
  var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 var currentdate = new Date();
 
-    var datetime = "⏳┇ " +days[currentdate.getDay()] +"•"+ currentdate.getDate() + "•" +(currentdate.getMonth() + 1) + "•" +currentdate.getFullYear()
-    client.channels.cache.get("786597169414668288").setName(datetime, "daily date change");
+    var datetime = "⏳〣 " +days[currentdate.getDay()] +"•"+ currentdate.getDate() + "•" +(currentdate.getMonth() + 1) + "•" +currentdate.getFullYear()
+    client.channels.cache.get("789783234727641098").setName(datetime, "daily date change");
     console.log(`Changing Date EN To ${datetime}!`);
 });
 cron.schedule('5 * * * * *', function () {
@@ -555,9 +571,15 @@ cron.schedule('5 * * * * *', function () {
     var days = ["الأحد‬", "الاثنين‬", "الثلاثاء‬", "الأربعاء‬", "الخميس‬", "الجمعة‬", "السبت‬"];
     var ghamari = gregorian_to_ghamari(g_y, g_m, g_d);
 const roz = days[ndt.getDay()];
-    var dateAR = "⏳┇ " + ghamari[0] + '•' + ghamari[1] + '•' + ghamari[2] + "•" + roz;
-    client.channels.cache.get("786597186082177024").setName(dateAR);
+    var dateAR = "⏳〣 " + ghamari[0] + '•' + ghamari[1] + '•' + ghamari[2] + "•" + roz;
+    client.channels.cache.get("789787518786469888").setName(dateAR);
     console.log(`Changing Date AR To ${dateAR}!`);
+});
+cron.schedule('5 * * * * *', function () {
+        const mic = client.guilds.cache.get('680395962446774292');
+const mic2 = `🎤〣TotalMics:${mic.voiceStates}`
+        client.channels.cache.get("789783230924193864").setName(mic2);
+
 });
 client.login(process.env.token);
 
