@@ -18,7 +18,7 @@ client.on('ready', () => {
         let VoiceCountChannel = guild.channels.cache.get("789783230924193864");
         VoiceCountChannel.setName(`🎤〣TotalMic: ${membersInVoice}`);
         console.log(membersInVoice)
-    }, 5000);
+    }, 60000);
 
 
 
