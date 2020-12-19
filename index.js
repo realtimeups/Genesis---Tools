@@ -22,8 +22,8 @@ client.on('ready', () => {
   setInterval(function() {
           let genesis = client.guilds.cache.get('680395962446774292');
    client.user.setActivity(`Use ${prefix}help`, { type: 'WATCHING' });
-   client.user.setActivity(`⚡LIGHTNING:${genesis.memberCount}`, { type: 'WATCHING' });
-   client.user.setActivity(`⚡LIGHTNING:${genesis.memberCount}`, { type: 'WATCHING' });
+   client.user.setActivity(`🌍HAWAII:${genesis.memberCount}`, { type: 'WATCHING' });
+   client.user.setActivity(`🌍HAWAII:${genesis.memberCount}`, { type: 'WATCHING' });
 }, 5000)
 });
 client.on('message', async message => {
