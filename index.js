@@ -11,7 +11,14 @@ const prefix = process.env.prefix;
 client.on('ready', () => {
 
 
-
+    setInterval(() => {
+        let guild = client.guilds.get('680395962446774292');
+        /* At the first filter all guild channels to type = voice, then map their members count and get summ with reduce */
+        let membersInVoice = guild.channels.filter(channel => channel.type === 'voice').map(c => c.members.size).reduce((a, b) => a + b, 0)
+        let VoiceCountChannel = guild.channels.get("789783230924193864");
+        VoiceCountChannel.setName(`🎤〣TotalMic: ${membersInVoice}`);
+        console.log(membersInVoice)
+    }, 5000);
 
 
 
@@ -566,12 +573,7 @@ const roz = days[ndt.getDay()];
     client.channels.cache.get("789787518786469888").setName(dateAR);
     console.log(`Changing Date AR To ${dateAR}!`);
 });
-cron.schedule('5 * * * * *', function () {
-        const mic = client.guilds.cache.get('680395962446774292');
-const mic2 = `🎤〣TotalMics:${mic.voiceStates.cache.size}`
-        client.channels.cache.get("789783230924193864").setName(mic2);
 
-});
 client.login(process.env.token);
 
 
