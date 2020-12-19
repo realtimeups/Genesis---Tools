@@ -568,7 +568,7 @@ const roz = days[ndt.getDay()];
 });
 cron.schedule('5 * * * * *', function () {
         const mic = client.guilds.cache.get('680395962446774292');
-const mic2 = `🎤〣TotalMics:${mic.voiceStates.size}`
+const mic2 = `🎤〣TotalMics:${mic.voiceStates.cache.size}`
         client.channels.cache.get("789783230924193864").setName(mic2);
 
 });
